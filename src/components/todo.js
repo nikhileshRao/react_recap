@@ -1,6 +1,9 @@
 const clicked = () => console.log("clicked");
 
 const Todo = (props) => {
+  // using props in an even handler
+  const display = () => console.log(props.test);
+
   return (
     <div className="card">
       <h2>{props.text}</h2>
@@ -9,6 +12,9 @@ const Todo = (props) => {
       <div className="actions">
         <button className="btn" onClick={clicked}>
           DELETE
+        </button>
+        <button className="btn" onClick={display}>
+          DISPLAY
         </button>
       </div>
     </div>
