@@ -1,6 +1,16 @@
+import { useState } from "react";
+import Backdrop from "./Backdrop";
+import Modal from "./Modal";
+
 const clicked = () => console.log("clicked");
 
 const Todo = (props) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const changed = () => {
+    setModalIsOpen(true);
+  };
+
   // using props in an even handler
   const display = () => console.log(props.test);
 
@@ -16,7 +26,12 @@ const Todo = (props) => {
         <button className="btn" onClick={display}>
           DISPLAY
         </button>
+        <button className="btn" onClick={changed}>
+          Changed
+        </button>
       </div>
+      {modalIsOpen ? <Modal /> : null}
+      {modalIsOpen ? <Backdrop /> : null}
     </div>
   );
 };
